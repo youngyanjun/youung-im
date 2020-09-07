@@ -1,3 +1,9 @@
-netty:
-  port:  29000
-  url: 192.168.0.28
+spring:
+  profiles:
+    #开发环境
+    active: dev
+    #正式环境
+#    active: prod
+    #压测环境
+    #active: test
+

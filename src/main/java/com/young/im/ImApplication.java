@@ -1,32 +1,16 @@
 package com.young.im;
 
-import com.young.im.nettyserver.NettyServer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-import java.net.InetSocketAddress;
 
 @SpringBootApplication
-public class ImApplication  implements CommandLineRunner {
-    @Value("${netty.port}")
-    private int port;
-
-    @Value("${netty.url}")
-    private String url;
-
-    @Autowired
-    private NettyServer server;
-
+public class ImApplication  {
     public static void main(String[] args) {
         SpringApplication.run(ImApplication.class, args);
     }
-    @Override
-    public void run(String... args) throws Exception {
-        InetSocketAddress address = new InetSocketAddress(url,port);
-        System.out.println("run  .... . ... "+url);
-        server.start(address);
-    }
+
 }
